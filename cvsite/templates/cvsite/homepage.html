@@ -4,17 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Document</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> 
 </head>
 <body>
-    {% for cvelement in cvelements %}
-    <div>
-      <h3>{{ cvelement.nome }}</h3>
-      <p>Da {{cvelement.start }} a {{cvelement.end}}</p>
-      <hr />
-      <div>{{cvelement.riassunto}}</div>
-      <hr />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <br>
+    <br>
+    <div class="card" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia-exp1.licdn.com%2Fdms%2Fimage%2FC5603AQH7lZ0m3ANldg%2Fprofile-displayphoto-shrink_200_200%2F0%2F1643551908337%3Fe%3D1659571200%26v%3Dbeta%26t%3DaAHhK-K_GGAvMvgKBsAUuZKGivhaojCoupypEhq1J_4&imgrefurl=https%3A%2F%2Fit.linkedin.com%2Fpub%2Fdir%2FRiccardo%2FPalmisano&tbnid=8co2xsJMy9PPkM&vet=12ahUKEwin-_j7iqb6AhUEqIsKHaNPA-IQMygCegQIARA7..i&docid=5NlqVgVIlgwcyM&w=200&h=200&q=riccardo%20palmisano%20linkedin&ved=2ahUKEwin-_j7iqb6AhUEqIsKHaNPA-IQMygCegQIARA7" class="img-fluid rounded-start" alt="">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Riccardo Palmisano</h5>
+            <p class="card-text">studente al corso ITS mar presso Villa Strozzi, diplomato nel 2020 al tecnico SIA del Russell_Newton.</p>
+            <p class="card-text"><small class="text-muted">ultimo aggiornamento 1 mese fa</small></p>
+          </div>
+        </div>
+      </div>
     </div>
-    {% endfor %}
+    <div>
+      <ul>
+      <li>via del pantano 16/p</li>
+      <li>ricca1.rp@gmail.com</li>
+      <li>3254420366</li>
+      </ul>
+    </div>
+    <br>
+    <br>
+    <div class="barre">
+      <ion-icon src="logo-css3.svg"></ion-icon>
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+    </div>
+    <br>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-label="Success striped example" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped bg-info" role="progressbar" aria-label="Info striped example" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-label="Warning striped example" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Danger striped example" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br>
+    <div class="card text-bg-light mb-3" style="max-width: 18rem;">{% for cvelement in cvelements %}
+      <div class="card-header">{{ cvelement.nome }}</div>
+      <div class="card-body">
+        <p class="card-text">{{cvelement.riassunto}}</p>
+    </div>
+    <div class="card-footer bg-transparent border-success">Da {{cvelement.start }} a {{cvelement.end}}</div>
+      </div>
+      {% endfor %}
 </body>
 </html>
