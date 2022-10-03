@@ -19,5 +19,6 @@ from cvsite import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cvsite', views.cvsite)
+    path('', views.cvsite, name='home'),
+    path('contatti', views.contatti, name='contatti')
 ]
