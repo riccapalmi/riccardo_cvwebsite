@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>cv</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+  </head>
+<body style="background-color: #FFFAF0;">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <span class="fs-4">
+              <p style="font-size: 40px;">Riccardo Palmisano website</p>
+            </span>
+          </a>
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="{% url 'home' %}" class="nav-link" style="color: black;">Home</a></li>
+            <li class="nav-item"><a href="{% url 'contatti' %}" class="nav-link" style="color: black;">Contatti</a></li>
+            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Curriculum</a></li>
+            <li class="nav-item"><a href="{% url 'blog' %}" class="nav-link" style="color: black;">Blog</a></li>
+          </ul>
+        </header>
+      </div>
+      <br>
+      <br>
+      <div id="htmlContent" class="w3-content w3-margin-top" style="max-width:1100px;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding" >
+        
+          <!-- Left Column -->
+          <div class="w3-third">
+          
+            <div class="w3-white w3-text-black w3-card-4">
+              <div class="w3-display-container">
+                <img src="data:image/jpeg;base64,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" alt="">
+                <div class="w3-display-bottomleft w3-container w3-text-black">
+                  
+                </div>
+              </div>
+              <div class="w3-container">
+                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Programmatore</p>
+                <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Firenze, IT</p>
+                <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>ricca1.rp@gmail.com</p>
+                <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>1224435534</p>
+                <hr>
+      
+                <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+                <p>html</html></p>
+                <div class="w3-light-grey w3-round-xlarge w3-small">
+                  <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+                </div>
+                <p>css</p>
+                <div class="w3-light-grey w3-round-xlarge w3-small">
+                  <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+                    <div class="w3-center w3-text-white">80%</div>
+                  </div>
+                </div>
+                <p>php</p>
+                <div class="w3-light-grey w3-round-xlarge w3-small">
+                  <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
+                </div>
+                <p>django</p>
+                <div class="w3-light-grey w3-round-xlarge w3-small">
+                  <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
+                </div>
+                <br>
+      
+                <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Lingue</b></p>
+                <p>inglese</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                  <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+                </div>
+                <p>Spagnolo</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                  <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
+                </div>
+                <p>francese</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                  <div class="w3-round-xlarge w3-teal" style="height:24px;width:5%"></div>
+                </div>
+                <br>
+              </div>
+            </div><br>
+      
+          <!-- End Left Column -->
+          </div>
+      
+          <!-- Right Column -->
+          <div class="w3-twothird">
+          
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+              <h2 class="w3-text-black w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Esperienze di lavoro</h2>
+              <div class="w3-container">
+                <h5 class="w3-opacity"><b>Programmatore software</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Gen 2015 - <span class="w3-tag w3-teal w3-round">Adesso</span></h6>
+                <p>Assunto come stagista presso azienda informatica. Utilizzo di programma quali html, css, php.</p>
+                <hr>
+              </div>
+              <div class="w3-container">
+                <h5 class="w3-opacity"><b>Sviluppo web</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dic 2014</h6>
+                <p>Lavoro presso start up come sviluppatore</p>
+                <hr>
+              </div>
+              <!-- <div class="w3-container">
+                <h5 class="w3-opacity"><b>Web Designer</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Giu 2010 - Mar 2012</h6>
+                <p></p><br>
+              </div> -->
+            </div>
+      
+            <div class="w3-container w3-card w3-white">
+              <h2 class="w3-text-black w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Formazione</h2>
+              <!-- <div class="w3-container">
+                <h5 class="w3-opacity"><b>W3Schools.com</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever</h6>
+                <p>Web Development! All I need to know in one place</p>
+                <hr>
+              </div> -->
+              <div class="w3-container">
+                <h5 class="w3-opacity"><b>Russell-Newton, scandicci</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2016 - 2021</h6>
+                <p>Diploma</p>
+                <hr>
+              </div>
+              <div class="w3-container">
+                <h5 class="w3-opacity"><b>ITS m.a.r.</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2021 - 2023</h6>
+                <p>Diploma di tecnico superiore</p><br>
+              </div>
+            </div>
+      
+          <!-- End Right Column -->
+          </div>
+          
+        <!-- End Grid -->
+        </div>
+        
+        <!-- End Page Container -->
+      </div>
+      <br>
+      <br>
+      <br>
+      <div style="margin-left: 150px; font-size: 20px;">
+        <a class="btn btn-light" href="{% url 'download' %}" style="font-size: 15px; font-weight: 600; color: rgb(255, 255, 255); background-color: dimgrey;">
+          SCARICA IL PDF
+        </a>
+      </div>
+      <!-- <div id="editor" style="margin-left: 500px;">
+      <p>
+        <button id="generatePDF">scarica PDF</button>
+      </p>
+      <script>
+        var doc = new jsPDF();
+        var specialElementHandlers = {
+        '#editor': function (element, renderer) {
+        return true;
+        }
+        };
+
+        $('#generatePDF').click(function () {
+          doc.fromHTML($('#htmlContent').html(), 15, 15, {
+          'width': 700,
+          'elementHandlers': specialElementHandlers
+        });
+           doc.save('cv_file.pdf');
+        });
+      </script>
+      </div> -->
+      <br>
+      <br>
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="bootstrap" viewBox="0 0 118 94">
+          <title>Bootstrap</title>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+        </symbol>
+        <symbol id="facebook" viewBox="0 0 16 16">
+          <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+        </symbol>
+        <symbol id="instagram" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+        </symbol>
+        <symbol id="twitter" viewBox="0 0 16 16">
+          <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+        </symbol>
+      </svg>
+      <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Company, Inc</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="https://www.linkedin.com/in/riccardo-palmisano-a12b7222b/"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/_riccapalmi_/"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/ricca.palmi.9/"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+          </ul>
+        </footer>
+      </div> 
+</body>
+</html>

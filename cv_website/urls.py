@@ -20,5 +20,11 @@ from cvsite import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.cvsite, name='home'),
-    path('contatti', views.contatti, name='contatti')
+    path('contatti', views.contatti, name='contatti'),
+    path('cv', views.cv, name='cv'),
+    path('details/<int:cvelement_id>', views.details, name='details'),
+    path('download/', views.download_file, name="download"),
+    path('blog', views.blog, name='blog'),
+    path('art1', views.art1, name='art1'),
 ]
+
